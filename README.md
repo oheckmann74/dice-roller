@@ -24,6 +24,29 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
+export default function DiceSelector() {
+    const [dice, setDice] = useState(6);
+
+    const handleChange = ({target}) => {
+        setDice(target.dice);
+    }
+
+    const rollDice = () => {
+        let result = [];
+        for (let index = 0; index < dice; index++) {
+            result[index] = Math.floor(Math.random()*6)+1
+        }
+//        result = result.sort()
+        alert(result);
+    }
+
+    return (
+        <div>
+            <input type="text" value={dice} className='dice-number' onChange={handleChange} />
+            <button onClick={rollDice}>Roll</button>
+        </div>
+    )
+}
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
