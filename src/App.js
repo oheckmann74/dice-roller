@@ -1,13 +1,39 @@
 import './App.css';
 import React, { useState } from 'react';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Slider from '@material-ui/core/Slider';
+import Input from '@material-ui/core/Input';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CasinoIcon from '@material-ui/icons/Casino';
+import ClearIcon from '@material-ui/icons/Clear';
+
+const useStyles = makeStyles({
+  root: {
+    width: 375,
+  },
+  input: {
+    width: 42,
+  },
+});
 
 
 function DiceRoller() {
-  const [dice, setDice] = useState(6);
+  const classes = useStyles();
 
-  const handleChange = ({target}) => {
-      setDice(target.value);
-  }
+  const [dice, setDice] = useState(10);
+
+  const handleSliderChange = (event, newValue) => {
+    setDice(newValue);
+  };
+
+  const handleInputChange = (event) => {
+    setDice(event.target.value === '' ? '' : Number(event.target.value));
+  };
 
   const [result, setResult] = useState([]);
 
@@ -20,7 +46,11 @@ function DiceRoller() {
     setResult(rresult);
   }
 
-
+  const handleBlur = () => {
+    if (dice < 1) {
+      setDice(1);
+    } 
+  };
 
   const reset = () => {
     setResult([]);
@@ -37,15 +67,50 @@ function DiceRoller() {
 
   return (
       <div>
-          <input type="text" value={dice} className='dice-number' onChange={handleChange} />
-          <button onClick={rollDice}>Roll</button>
-          <div class="slidecontainer">
-            <input type="range" min="1" max="20" value={dice} className="slider" onChange={handleChange} />
-          </div>
+        <Card className={classes.root}>
+          <CardContent>
+          <Typography id="input-slider" gutterBottom align='left'>
+                    Number of Dice
+          </Typography>
+          <Grid container spacing={2} alignItems="center">
+             <Grid item xs>
+              <Slider
+                value={typeof dice === 'number' ? dice : 0}
+                onChange={handleSliderChange}
+                aria-labelledby="input-slider"
+                min={1}
+                max={30}
+              />
+            </Grid>
+            <Grid item>
+              <Input
+                className={classes.input}
+                value={dice}
+                margin="dense"
+                onChange={handleInputChange}
+                onBlur={handleBlur}
+                inputProps={{
+                  step: 5,
+                  min: 1,
+                  max: 100,
+                  type: 'number',
+                  'aria-labelledby': 'input-slider',
+                }}
+              />
+            </Grid>
+              
+          </Grid>
+          </CardContent>
+          <CardActions>
+              <Button fullWidth variant="contained" color="primary" onClick={rollDice} startIcon={<CasinoIcon />}>Roll</Button>
+              <Button onClick={reset} disabled={result.length < 1 || result == undefined ? true:false}>Clear</Button>
+          </CardActions>
+        </Card>
+          
           <div>
             {resultJSX}
           </div>
-          <button onClick={reset}>Reset</button>
+          
       </div>
   )
 }
@@ -55,7 +120,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        Dice Roller App
         <DiceRoller />
        </header>
      </div>
