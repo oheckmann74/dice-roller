@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/dice-roller/static/css/main.76ade991.chunk.css",
-    "main.js": "/dice-roller/static/js/main.e51f35e7.chunk.js",
-    "main.js.map": "/dice-roller/static/js/main.e51f35e7.chunk.js.map",
+    "main.js": "/dice-roller/static/js/main.89ae227d.chunk.js",
+    "main.js.map": "/dice-roller/static/js/main.89ae227d.chunk.js.map",
     "runtime-main.js": "/dice-roller/static/js/runtime-main.d6821068.js",
     "runtime-main.js.map": "/dice-roller/static/js/runtime-main.d6821068.js.map",
-    "static/js/2.bbedd4cd.chunk.js": "/dice-roller/static/js/2.bbedd4cd.chunk.js",
-    "static/js/2.bbedd4cd.chunk.js.map": "/dice-roller/static/js/2.bbedd4cd.chunk.js.map",
+    "static/js/2.0f73b53d.chunk.js": "/dice-roller/static/js/2.0f73b53d.chunk.js",
+    "static/js/2.0f73b53d.chunk.js.map": "/dice-roller/static/js/2.0f73b53d.chunk.js.map",
     "index.html": "/dice-roller/index.html",
     "static/css/main.76ade991.chunk.css.map": "/dice-roller/static/css/main.76ade991.chunk.css.map",
-    "static/js/2.bbedd4cd.chunk.js.LICENSE.txt": "/dice-roller/static/js/2.bbedd4cd.chunk.js.LICENSE.txt"
+    "static/js/2.0f73b53d.chunk.js.LICENSE.txt": "/dice-roller/static/js/2.0f73b53d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d6821068.js",
-    "static/js/2.bbedd4cd.chunk.js",
+    "static/js/2.0f73b53d.chunk.js",
     "static/css/main.76ade991.chunk.css",
-    "static/js/main.e51f35e7.chunk.js"
+    "static/js/main.89ae227d.chunk.js"
   ]
 }
