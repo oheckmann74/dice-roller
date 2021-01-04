@@ -18,7 +18,7 @@ import Looks5RoundedIcon from '@material-ui/icons/Looks5Rounded';
 import Looks6RoundedIcon from '@material-ui/icons/Looks6Rounded';
 import ForwardIcon from '@material-ui/icons/Forward';
 import { IconButton } from '@material-ui/core';
-
+import Collapse from '@material-ui/core/Collapse';
 
 const BUTTONS = [<LooksOneRoundedIcon/>, <LooksTwoRoundedIcon/>, <Looks3RoundedIcon/>, <Looks4RoundedIcon/>, <Looks5RoundedIcon/>, <Looks6RoundedIcon/>]
 
@@ -37,6 +37,7 @@ function ResultCard(props) {
   const result = props.result;
   const cum_results = result.map((count, i) => result.slice(i).reduce((a, b) => a + b));
   return (
+    <Collapse in={true}>
     <Card className={classes.root}>
     <CardContent>
       <Grid container spacing={2} alignItems="center">
@@ -52,14 +53,15 @@ function ResultCard(props) {
               <Grid item xs={1}>{BUTTONS[i]}</Grid>
               <Grid item xs={2}></Grid> 
               <Grid item xs={3}>{BUTTONS[i]}{i < 5 ? BUTTONS[5] : ''}</Grid>
-              <Grid item xs={3}><Typography>{cum_results[i]} / {cum_results[0]-cum_results[i]}</Typography></Grid>
-              <Grid item xs={1}>{cum_results[i] === 0 ? "" : <IconButton onClick={() => props.setDice(cum_results[i])}><ForwardIcon /></IconButton>}</Grid>
+              <Grid item xs={3}><Typography>{cum_results[i]}s ({cum_results[0]-cum_results[i]}f)</Typography></Grid>
+              <Grid item xs={1}>{cum_results[i] === 0 ? "" : <IconButton color="primary" onClick={() => props.setDice(cum_results[i])}><ForwardIcon /></IconButton>}</Grid>
             </Grid>
           ))
         }
       
     </CardContent>
     </Card>
+    </Collapse>
   )
 }
 
