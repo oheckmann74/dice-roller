@@ -19,7 +19,7 @@ import Looks6RoundedIcon from "@material-ui/icons/Looks6Rounded";
 import ForwardIcon from "@material-ui/icons/Forward";
 import { IconButton } from "@material-ui/core";
 import Collapse from "@material-ui/core/Collapse";
-import { TimerOutlined } from "@material-ui/icons";
+
 
 const BUTTONS = [
   <LooksOneRoundedIcon />,
